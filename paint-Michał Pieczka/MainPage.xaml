@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="paint_Michał_Pieczka.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:paint_Michał_Pieczka"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="807" Width="1004">
+
+    <Grid Background="Gray" Width="1000" Height="800">
+        <Canvas x:Name="poleRysowania" Background="White"
+                Height="562" VerticalAlignment="Bottom"
+                PointerMoved="poleRysowania_PointerMoved"
+                PointerPressed="poleRysowania_PointerPressed"
+                PointerReleased="poleRysowania_PointerReleased" Margin="30,0,92,38"
+        />
+        <Grid Background="gray" x:Name="Menu" Height="200" VerticalAlignment="Top">
+            <Button Name="x" Content="X" Width="30" Height="30" Background="DimGray" VerticalAlignment="Top" HorizontalAlignment="Right" Click="x_Click"/>
+            <Grid Name="exitBoxMesege" Background="DimGray"  Width="250"
+                  Height="100" Visibility="Collapsed" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,90,0,0">
+                <Button Name="koniec" Content="Zakończ program" Click="koniec_Click" Margin="107,50,0,0" VerticalAlignment="Top"/>
+                <Button Name="worc" Content="wróć" Margin="26,50,0,0" VerticalAlignment="Top" Click="worc_Click"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Na pewno chcesz wyjść?" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            </Grid>
+            <StackPanel Name="spKolory"
+                        HorizontalAlignment="Left"
+                        PointerPressed="spKolory_PointerPressed">
+                <Rectangle Height="40" Width="40" Fill="Black"/>
+                <Rectangle Height="40" Width="40" Fill="red"/>
+                <Rectangle Height="40" Width="40" Fill="Green"/>
+                <Rectangle Height="40" Width="40" Fill="blue"/>
+            </StackPanel>
+            <Slider x:Name="slider" Header="wielkość czcionki" FontWeight="Bold" FontSize="19" Minimum="1" Maximum="50" Value="1" Height="55" Width="168" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="64,26,0,0"/>
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 150 0">
+                <RadioButton Name="dowolna" Content="Linia dowolna" GroupName="typLini" Checked="dowolna_Checked" IsChecked="True"/>
+                <RadioButton Name="prosta"  Content="Linia prosta" GroupName="typLini" Checked="prosta_Checked" />
+            </StackPanel>
+            <MediaElement Name="media" Visibility="Collapsed"/>
+            <Button Name="cofnij"  Content="cofnij" Margin="928,158,0,0" VerticalAlignment="Top" Click="cofnij_Click"/>
+        </Grid>
+    </Grid>
+</Page>
